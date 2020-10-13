@@ -13,7 +13,7 @@ const App = () => {
     // make fetch request for data here
     let newData = [];
     if (e.target.value.length > 0){
-      newData = response.filter(string => string.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1);
+      newData = response.filter(string => string.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1).slice(0, 4);
     }
     setData(newData);
   }
