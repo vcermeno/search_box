@@ -1,23 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Search from './components/Search';
+import DataDisplay from './components/DataDisplay';
 
-function App() {
+const App = () => {
+  const [text, setText] = useState("");
+  const response = ["Go to the store", "Wash the dishes", "Learn some code"];
+  const [data, setData] = useState([]);
+
+  const handleOnChange = (e) => {
+    setText(e.target.value);
+    // make fetch request for data here
+    let newData = [];
+    if (e.target.value.length > 0){
+      newData = response.filter(string => string.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1);
+    }
+    setData(newData);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Search handleOnChange={(e) => handleOnChange(e)} text={text}/>
+        <DataDisplay results={data}/>
       </header>
     </div>
   );
