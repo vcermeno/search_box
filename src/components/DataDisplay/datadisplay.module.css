@@ -1,0 +1,23 @@
+.DataDisplay{
+    background-color: #f5f5f5;
+    border: gray;
+    width: 50%;
+}
+
+.list{
+    padding: 0;
+    margin: 0;
+}
+
+.item{
+    list-style-type: none;
+    padding: 1% 0;
+    margin: 0;
+    width: 100%;
+    border-bottom: 1px solid #808080;
+    color: black;
+}
+
+.item:hover{
+    background-color: rgba(202, 199, 199, 0.801);
+}
